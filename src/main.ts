@@ -1,6 +1,8 @@
 import * as core from '@actions/core';
 import nodemailer from 'nodemailer';
 
+/* eslint-disable no-nested-ternary, no-extra-boolean-cast */
+
 async function run(): Promise<void> {
   try {
     const host = core.getInput('host');
@@ -21,7 +23,7 @@ async function run(): Promise<void> {
       auth: {
         user: username,
         pass: password,
-      }
+      },
     });
 
     const message = {
@@ -30,7 +32,7 @@ async function run(): Promise<void> {
       subject,
       text,
       html,
-    }
+    };
 
     transport.sendMail(message, err => {
       if (err) {
@@ -41,7 +43,6 @@ async function run(): Promise<void> {
       core.info(`Sent an mail to ${to}`);
       core.info('Done!');
     });
-
   } catch (error) {
     core.setFailed(error.message);
   }
