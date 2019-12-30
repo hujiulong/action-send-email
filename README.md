@@ -28,10 +28,10 @@ jobs:
         secure: false
 
         # Username, required
-        username: 'sender@server.com'
+        username: ${{ secrets.EMAIL_USERNAME }}
 
         # Password, required
-        password: 'password'
+        password: ${{ secrets.EMAIL_PASSWORD }}
 
         # The subject of the email, required
         subject: 'subject'
