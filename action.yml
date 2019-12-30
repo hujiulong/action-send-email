@@ -1,0 +1,39 @@
+name: 'Send Email'
+description: 'send email'
+author: 'Jiulong Hu'
+inputs:
+  host:
+    description: 'the hostname or IP address to connect to'
+    required: true
+  port:
+    description: 'the port to connect to (defaults to 587 if is secure is false or 465 if true)'
+    required: false
+  secure:
+    description: 'if true the connection will use TLS when connecting to server'
+    default: false
+    required: false
+  username:
+    description: 'username'
+    required: true
+  password:
+    description: 'password'
+    required: true
+  subject:
+    description: 'the subject of the email'
+    required: true
+  text:
+    description: 'the plaintext version of the message'
+    required: true
+  html:
+    description: 'the html version of the message'
+    required: false
+  from:
+    description: 'the email address of the sender'
+    required: false
+  to:
+    description: 'the email address of the receiver'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
